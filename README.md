@@ -1,3 +1,6 @@
-# My Awesome Book
+# 텐서플로우 강화학습
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+#### AlphaGo부터 StarCraft II 강화학습 에이전트 만들어보기
+
+머신러닝에 깊이 빠진 
+
