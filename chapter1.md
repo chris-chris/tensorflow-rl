@@ -1,3 +1,4 @@
-# First Chapter
+# Chapter I. Tensorflow 기본
 
-GitBook allows you to organize your book into chapters, each chapter is stored in a separate file like this one.
+Tensorflow 기본 사용법을 설명드리겠습니다.
+
