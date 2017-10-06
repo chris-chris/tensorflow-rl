@@ -59,6 +59,25 @@ $$ v_\pi(s) = E_\pi [G_t | S_t = s] $$
 $$ v_\pi(s) = E_\pi[R_{t+1} + \gamma v_\pi(S_{t+1}) | S_t = s] $$
 
 $$  R + \gamma V(S_{t+1}) = 업데이트의 목표$$
+
 $$  \alpha(R + \gamma V(S_{t+1}) - V(S_t)) = 업데이트의 크기$$
 
+### 살사의 큐함수 업데이트 식
+
+$$ Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha(R + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t))$$
+
+
+$$ Q(s,a) \leftarrow Q(s,a) + \alpha(r + \gamma Q(s', a') - Q(s,a)) $$
+
+### 큐러닝을 통한 큐함수의 업데이트
+
+$$ Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha(R_{t+1} + \gamma \underset{a'}{\mathrm{max}}Q(S_{t+1}, a') - Q(S_t, A_t))$$
+
+### 큐함수에 대한 벨만 최적 방정식
+
+$$ q_*(s,a) = E[R_{t+1} + \gamma\underset{a'}{\mathrm{max}}q_*(S_{t+1}, a') | S_t = s, A_t = a] $$
+
+### 큐러닝에서 큐함수의 업데이트 식
+
+$$ Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha(R_{t+1} + \gamma \underset{a'}{\mathrm{max}}Q(S_{t+1}, a') -Q(S_t, A_t)) $$
 
