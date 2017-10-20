@@ -81,3 +81,8 @@ $$ q_*(s,a) = E[R_{t+1} + \gamma\underset{a'}{\mathrm{max}}q_*(S_{t+1}, a') | S_
 
 $$ Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha(R_{t+1} + \gamma \underset{a'}{\mathrm{max}}Q(S_{t+1}, a') -Q(S_t, A_t)) $$
 
+### A3C Policy Gradient 수식 유도
+
+* Policy gradient의 정책 업데이트식 > 핵심은 Policy gradient
+
+$$ \theta \leftarrow \theta + \alpha \nabla_\theta J(\theta) $$
