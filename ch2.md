@@ -116,9 +116,9 @@ X = np.array([[1.0, 0.0, 0.0],
 Y = np.array([0,0,0,1])
 
 print("X :", X)
-y = perceptron(X, W)
-print("perceptron(X) :", y)
-errors = Y - y
+output = perceptron(X, W)
+print("perceptron(X) :", output)
+errors = Y - output
 print("errors :", errors)
 W = update_weight(X, W, Y, errors)
 sum_error = np.sum(errors)
@@ -178,9 +178,9 @@ while sum_error != 0:
   epoch += 1
   print("learning epoch :", epoch)
   print("X :", X)
-  y = perceptron(X, W)
-  print("perceptron(X) :", y)
-  errors = Y - y
+  output = perceptron(X, W)
+  print("perceptron(X) :", output)
+  errors = Y - output
   print("errors :", errors)
   W = update_weight(X, W, Y, errors)
   sum_error = np.sum(errors)
