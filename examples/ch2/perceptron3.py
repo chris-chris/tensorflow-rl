@@ -22,11 +22,6 @@ X = np.array([[1.0, 0.0, 0.0],
 
 Y = np.array([0,1,1,1])
 
-Y1 = 0
-Y2 = 0
-Y3 = 0
-Y4 = 1
-
 epoch = 0
 sum_error = 1
 while sum_error != 0:
