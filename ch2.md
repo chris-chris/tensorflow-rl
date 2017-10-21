@@ -102,10 +102,6 @@ def perceptron(X, W):
 
   return step(h)
 
-def update_weight(X, W, Y, errors, learning_rate = 0.1):
-  W = W + learning_rate * np.dot(errors, X)
-  return W
-
 W = np.array([0., 0., 0.])
 
 X = np.array([[1.0, 0.0, 0.0],
@@ -120,8 +116,7 @@ output = perceptron(X, W)
 print("perceptron(X) :", output)
 errors = Y - output
 print("errors :", errors)
-W = update_weight(X, W, Y, errors)
-sum_error = np.sum(errors)
+sum_error = np.sum(np.absolute(errors)) / len(Y)
 print("sum of errors :", sum_error)
 print("W :", W)
 
@@ -174,7 +169,8 @@ Y = np.array([0,0,0,1])
 
 epoch = 0
 sum_error = 1
-while sum_error != 0:
+threashold = 0.1
+while sum_error > threashold:
   epoch += 1
   print("learning epoch :", epoch)
   print("X :", X)
@@ -183,7 +179,7 @@ while sum_error != 0:
   errors = Y - output
   print("errors :", errors)
   W = update_weight(X, W, Y, errors)
-  sum_error = np.sum(errors)
+  sum_error = np.sum(np.absolute(errors)) / len(Y)
   print("sum of errors :", sum_error)
   print("W :", W)
   print("")
