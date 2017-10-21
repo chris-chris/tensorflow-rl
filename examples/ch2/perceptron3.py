@@ -21,7 +21,7 @@ X = np.array([[1.0, 0.0, 0.0],
               [1.0, 0.0, 1.0],
               [1.0, 1.0, 1.0]])
 
-Y = np.array([0,0,0,1])
+Y = np.array([0,1,1,1])
 
 Y1 = 0
 Y2 = 0
@@ -44,19 +44,19 @@ while sum_error != 0:
   print("W :", W)
   print("")
 
-print("final W for AND function :", W)
+print("final W for OR function :", W)
 
 """
-learning epoch : 4
+learning epoch : 6
 X : [[ 1.  0.  0.]
  [ 1.  1.  0.]
  [ 1.  0.  1.]
  [ 1.  1.  1.]]
-np.dot(X, W) + b : [ -1.00000000e-01  -2.77555756e-17  -2.77555756e-17   1.00000000e-01]
-perceptron(X) : [0 0 0 1]
+np.dot(X, W) + b : [-0.1  0.1  0.1  0.3]
+perceptron(X) : [0 1 1 1]
 errors : [0 0 0 0]
 sum of errors : 0
-W : [-0.1  0.1  0.1]
+W : [-0.1  0.2  0.2]
 
-final W : [-0.1  0.1  0.1]
+final W for OR function : [-0.1  0.2  0.2]
 """

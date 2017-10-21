@@ -1,40 +1,46 @@
 import numpy as np
 
-def Perceptron(X):
-  W = np.array([0.5, 0.5])
+def step(x):
+  return np.where(x > 0, 1, 0)
+
+def perceptron(X, W):
   b = 0
   h = np.dot(X, W) + b
   print("np.dot(X, W) + b :", h)
-  if(h > 0):
-    return 1
-  else:
-    return 0
 
-X1 = np.array([0.0, 0.0])
-X2 = np.array([1.0, 0.0])
-X3 = np.array([0.0, 1.0])
-X4 = np.array([1.0, 1.0])
+  return step(h)
 
-print("X1 :", X1)
-print("Perceptron(X1) :", Perceptron(X1))
-# X1 : [ 0.  0.]
-# np.dot(X, W) + b : 0.0
-# Perceptron(X1) : 0
+def update_weight(X, W, Y, errors, learning_rate = 0.1):
+  W = W + learning_rate * np.dot(errors, X)
+  return W
 
-print("X2 :", X2)
-print("Perceptron(X2) :", Perceptron(X2))
-# X2 : [ 1.  0.]
-# np.dot(X, W) + b : 0.5
-# Perceptron(X2) : 1
+W = np.array([0., 0., 0.])
 
-print("X3 :", X3)
-print("Perceptron(X3) :", Perceptron(X3))
-# X3 : [ 0.  1.]
-# np.dot(X, W) + b : 0.5
-# Perceptron(X3) : 1
+X = np.array([[1.0, 0.0, 0.0],
+              [1.0, 1.0, 0.0],
+              [1.0, 0.0, 1.0],
+              [1.0, 1.0, 1.0]])
 
-print("X4 :", X4)
-print("Perceptron(X4) :", Perceptron(X4))
-# X4 : [ 1.  1.]
-# np.dot(X, W) + b : 1.0
-# Perceptron(X4) : 1
+Y = np.array([0,0,0,1])
+
+print("X :", X)
+y = perceptron(X, W)
+print("perceptron(X) :", y)
+errors = Y - y
+print("errors :", errors)
+W = update_weight(X, W, Y, errors)
+sum_error = np.sum(errors)
+print("sum of errors :", sum_error)
+print("W :", W)
+
+"""
+X : [[ 1.  0.  0.]
+ [ 1.  1.  0.]
+ [ 1.  0.  1.]
+ [ 1.  1.  1.]]
+np.dot(X, W) + b : [ 0.  0.  0.  0.]
+perceptron(X) : [0 0 0 0]
+errors : [0 0 0 1]
+sum of errors : 1
+W : [ 0.1  0.1  0.1]
+"""
