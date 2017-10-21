@@ -11,7 +11,7 @@
 
 단일 퍼셉트론의 구조는 아래의 Python 코드로 표현할 수 있습니다. 퍼셉트론은 XW + b로 표현되는 선형 연산의 결과값을 구한 후에 Step 함수에 넣어 최종 결과를 얻습니다.
 
-```
+```python
 import numpy as np
 
 def step(x):
@@ -28,7 +28,7 @@ def perceptron(X):
 
 먼저 Step 함수의 결과값은 어떻게 나오는 지 그래프로 확인해보겠습니다.
 
-```
+```python
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -58,7 +58,7 @@ X = [1, 1] Y = 1
 
 numpy로는 이렇게 표현해볼 수 있겠네요.
 
-```
+```python
 X = np.array([[0.0, 0.0],
               [1.0, 0.0],
               [0.0, 1.0],
@@ -69,7 +69,7 @@ Y = np.array([0,0,0,1])
 
 가중치 W와 바이어스 b의 초기값을 임의로 설정해보겠습니다. 가중치 W는 [0., 0.]로 설정하고, 편향 b는 0.으로 설정하겠습니다. 
 
-```
+```python
 W = np.array([0., 0.])
 b = 0
 ```
