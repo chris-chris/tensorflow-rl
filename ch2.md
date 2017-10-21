@@ -76,7 +76,7 @@ b = 0
 
 그런데, 계산을 단순하게 만들기 위해 편향을 제외할 방법이 있습니다. 바로 편향를 가중치의 첫번째 값으로 설정한 후, 무조건 X의 첫번째 입력값은 1로 고정시키는 것입니다. 그러면 Y = XW 행렬곱만으로 Y = XW + b 를 대체할 수 있습니다. 그럼, X, Y, W 의 값을 다시 정의해보도록 하겠습니다.
 
-```
+```python
 W = np.array([0., 0., 0.])
 
 X = np.array([[1.0, 0.0, 0.0],
@@ -213,7 +213,7 @@ final W for AND function : [-0.1  0.1  0.1]
 
 퍼셉트론이 아닌 Sigmoid 인공 뉴런을 만들어보도록 하겠습니다. 아까 만들어본 퍼셉트론과의 가장 큰 차이점은 결과값이 0과 1로만 이루어지지 않는다는 점입니다. x값에 따른 Sigmoid 함수의 값을 한번 그래프로 그려보겠습니다.
 
-```
+```python
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -234,14 +234,12 @@ plt.show()
 
 우리는 조금씩 가중치를 조금씩 변경하면서 결과값을 수정해보겠습니다.  
 
-```
-
+```python
 def sigmoid(x):
   return 1. / (1 + np.exp(-x))
 
 def sigmoid_p(x):
   return sigmoid(x) * (1-sigmoid(x))
-  
 ```
 
 ## 3 X 3 사이즈의 이미지 인식 구현
@@ -261,7 +259,7 @@ X = [0, 0, 0, 1]
 
 ## 2-4. 활성화 함수(Activation Function)
 
-```
+```python
 def ReLU(x):
   return x * (x > 0)
 
@@ -275,7 +273,7 @@ def sigmoid(x):
 
 ## 2-3. 경사 하강법(Gradient Descent)
 
-```
+```python
 # From udacity Machine Learning Nanodegree course
 
 import numpy as np
