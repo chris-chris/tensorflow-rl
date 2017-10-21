@@ -44,7 +44,7 @@ print("x * y :", z)
 
 4) 지수 연산입니다. `x ** y` 이렇게 표현합니다.
 
-``` 
+```python 
 # 지수(exponential)
 x = 2
 y = 10
@@ -66,7 +66,7 @@ print("x / y :", z)
 
 6) % 연산입니다. 나눗셈을 한 후 나머지를 구하는 연산입니다.
 
-```
+```python
 # 나머지(remainder)
 x = 7
 y = 3
@@ -77,7 +77,7 @@ print("x % y :", z)
 
 7) // 연산입니다. 나눗셈을 한 후 소수점 이하를 버리는 연산입니다.
 
-```
+```python
 # // 연산
 x = 7
 y = 3
@@ -238,7 +238,7 @@ print("type(y) :", type(y))
 
 
 ### Numpy 배열 연산 전체 코드 (ch1/numpy_ops.py)
-```
+```python
 # -*- encoding : utf-8 -*-
 
 import numpy as np
@@ -297,7 +297,7 @@ print("type(a) :", c)
 
 
 ### Numpy 행렬 연산 전체 코드 (ch1/matrix_ops.py)
-```
+```python
 # -*- encoding : utf-8 -*-
 
 import numpy as np
