@@ -5,9 +5,9 @@
 
 퍼셉트론(Perceptron)이라는 알고리즘은 1957년 Frank Rosenblatt에 의해 발명되었습니다. 퍼셉트론은 인공지능 기술의 시작이라고 평가받고 있습니다. 퍼셉트론은 이미지 인식을 하기 위해 발명되었으며, 뉴론의 구조를 모방한 최초의 인공 뉴런입니다. 
 
-![mark1](images/mark1.jpeg)
+![mark1](http://chris-chris.ai/img/ch2/mark1.jpeg)
 
-![perceptron1](images/perceptron1.png)
+![perceptron1](http://chris-chris.ai/img/ch2/perceptron1.png)
 
 단일 퍼셉트론의 구조는 아래의 Python 코드로 표현할 수 있습니다. 퍼셉트론은 XW + b로 표현되는 선형 연산의 결과값을 구한 후에 Step 함수에 넣어 최종 결과를 얻습니다.
 
@@ -43,7 +43,7 @@ plt.plot(x, y)
 plt.show()
 ```
 
-![step1](images/step1.png)
+![step1](http://chris-chris.ai/img/ch2/step1.png)
 
 AND 함수와 동일한 결과를 내놓는 퍼셉트론(Perceptron)을 구현해보겠습니다. AND는 x1와 x2가 모두 1일때의 결과가 1인 함수입니다. 우리는 AND 함수를 퍼셉트론으로 구현해볼 수 있습니다. 
 
