@@ -4,9 +4,8 @@ def step(x):
   return np.where(x > 0, 1, 0)
 
 def perceptron(X, W):
-  b = 0
-  h = np.dot(X, W) + b
-  print("np.dot(X, W) + b :", h)
+  h = np.dot(X, W)
+  print("np.dot(X, W) :", h)
 
   return step(h)
 
@@ -52,7 +51,7 @@ X : [[ 1.  0.  0.]
  [ 1.  1.  0.]
  [ 1.  0.  1.]
  [ 1.  1.  1.]]
-np.dot(X, W) + b : [-0.1  0.1  0.1  0.3]
+np.dot(X, W) : [-0.1  0.1  0.1  0.3]
 perceptron(X) : [0 1 1 1]
 errors : [0 0 0 0]
 sum of errors : 0
