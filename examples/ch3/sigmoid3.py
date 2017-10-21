@@ -40,6 +40,7 @@ while sum_error > threashold:
   output_grad = sigmoid_p(h)
   print("output_grad :", np.round(output_grad, 4))
   error_term = errors * output_grad
+  print("error_term :", np.round(error_term, 4))
   W = update_weight(X, W, Y, error_term)
   sum_error = np.sum(np.absolute(errors)) / len(Y)
   print("sum of errors :", np.round(sum_error, 4))

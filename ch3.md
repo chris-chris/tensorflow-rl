@@ -1,13 +1,13 @@
-# Chapter2. Perceptron
+# Chapter3. Neural Network
 
 
-## 2-1. 퍼셉트론(Perceptron)
+## 3-1. 퍼셉트론(Perceptron)
 
 퍼셉트론(Perceptron)이라는 알고리즘은 1957년 Frank Rosenblatt에 의해 발명되었습니다. 퍼셉트론은 인공지능 기술의 시작이라고 평가받고 있습니다. 퍼셉트론은 이미지 인식을 하기 위해 발명되었으며, 뉴론의 구조를 모방한 최초의 인공 뉴런입니다. 
 
-![mark1](http://chris-chris.ai/img/ch2/mark1.jpeg)
+![mark1](http://chris-chris.ai/img/ch3/mark1.jpeg)
 
-![perceptron1](http://chris-chris.ai/img/ch2/perceptron1.png)
+![perceptron1](http://chris-chris.ai/img/ch3/perceptron1.png)
 
 단일 퍼셉트론의 구조는 아래의 Python 코드로 표현할 수 있습니다. 퍼셉트론은 XW + b로 표현되는 선형 연산의 결과값을 구한 후에 Step 함수에 넣어 최종 결과를 얻습니다.
 
@@ -43,7 +43,7 @@ plt.plot(x, y)
 plt.show()
 ```
 
-![step1](http://chris-chris.ai/img/ch2/step1.png)
+![step1](http://chris-chris.ai/img/ch3/step1.png)
 
 AND 함수와 동일한 결과를 내놓는 퍼셉트론(Perceptron)을 구현해보겠습니다. AND는 x1와 x2가 모두 1일때의 결과가 1인 함수입니다. 우리는 AND 함수를 퍼셉트론으로 구현해볼 수 있습니다. 
 
@@ -138,7 +138,7 @@ W : [ 0.1  0.1  0.1]
 퍼셉트론을 구현하는 데는 성공했지만, 솔직히 가중치 W와 편향 b를 "학습시키는 법"에 대해서는 아직 잘 모르겠습니다. 물론 손으로 가중치를 임의로 변경해볼 수는 있습니다. 하지만, 우리는 우리의 손이 아닌 알고리즘으로 퍼셉트론을 학습시켜야 합니다. 우리가 원하는 답을 반환하도록 만들려면, 어떻게 만들어야 하는 걸까요? 인공 뉴런을 학습 시키는 법을 이어서 배워보도록 하겠습니다.
 
 
-## 2-2. 퍼셉트론 학습시키기
+## 3-2. 퍼셉트론 학습시키기
 
 퍼셉트론을 학습시키는 알고리즘을 구현해보도록 하겠습니다.
 
@@ -205,7 +205,7 @@ final W for AND function : [-0.1  0.1  0.1]
 이렇게 퍼셉트론에 학습 알고리즘을 적용하여, 퍼셉트론이 우리가 원하는 AND 연산과 동일한 결과를 반환하도록 구현했습니다. 
 
 
-## 2-3. Sigmoid 인공 뉴런
+## 3-3. Sigmoid 인공 뉴런
 
 퍼셉트론이 아닌 Sigmoid 인공 뉴런을 만들어보도록 하겠습니다. 아까 만들어본 퍼셉트론과의 가장 큰 차이점은 결과값이 0과 1로만 이루어지지 않는다는 점입니다. x값에 따른 Sigmoid 함수의 값을 한번 그래프로 그려보겠습니다.
 
@@ -224,11 +224,73 @@ plt.plot(x, y)
 plt.show()
 ```
 
-![sigmoid1](http://chris-chris.ai/img/ch2/sigmoid1.png)
+![sigmoid1](http://chris-chris.ai/img/ch3/sigmoid1.png)
 
 이렇게 Sigmoid 함수는 Step 함수와는 다르게 값이 아주 부드럽게 나타납니다. Step 함수와는 다르게 이렇게 부드러운 결과가 왜 중요한 걸까요? 바로 우리가 배울 인공 뉴런의 학습 방법과 연관이 있습니다. 
 
-우리는 조금씩 가중치를 조금씩 변경하면서 결과값을 수정해보겠습니다.  
+```python
+import numpy as np
+
+def sigmoid(x):
+  return 1. / (1 + np.exp(-x))
+
+def perceptron(X, W):
+  h = np.dot(X, W)
+  print("np.dot(X, W) :", h)
+
+  return sigmoid(h)
+
+def update_weight(X, W, Y, errors, learning_rate = 0.1):
+  W = W + learning_rate * np.dot(errors, X)
+  return W
+
+W = np.array([0., 0., 0.])
+
+X = np.array([[1.0, 0.0, 0.0],
+              [1.0, 1.0, 0.0],
+              [1.0, 0.0, 1.0],
+              [1.0, 1.0, 1.0]])
+
+Y = np.array([0,0,0,1])
+
+epoch = 0
+sum_error = 1
+threashold = 0.1
+while sum_error > threashold:
+  epoch += 1
+  print("learning epoch :", epoch)
+  print("X :", X)
+  output = perceptron(X, W)
+  print("perceptron(X) :", np.round(output, 4))
+  errors = Y - output
+  print("errors :", np.round(errors, 4))
+  W = update_weight(X, W, Y, errors)
+  sum_error = np.sum(np.absolute(errors)) / len(Y)
+  print("sum of errors :", np.round(sum_error, 4))
+  print("W :", np.round(W, 4))
+  print("")
+
+print("final W for AND function :", np.round(W, 4))
+
+"""
+learning epoch : 362
+X : [[ 1.  0.  0.]
+ [ 1.  1.  0.]
+ [ 1.  0.  1.]
+ [ 1.  1.  1.]]
+np.dot(X, W) : [-5.68613928 -2.02976748 -2.02976748  1.62660431]
+perceptron(X) : [ 0.0034  0.1161  0.1161  0.8357]
+errors : [-0.0034 -0.1161 -0.1161  0.1643]
+sum of errors : 0.1
+W : [-5.6933  3.6612  3.6612]
+
+final W for AND function : [-5.6933  3.6612  3.6612]
+"""
+```
+
+
+## 3-4. 경사 하강법(Gradient Descent)
+
 
 ```python
 def sigmoid(x):
@@ -237,6 +299,76 @@ def sigmoid(x):
 def sigmoid_p(x):
   return sigmoid(x) * (1-sigmoid(x))
 ```
+
+```python
+import numpy as np
+
+def sigmoid(x):
+  return 1. / (1 + np.exp(-x))
+
+def sigmoid_p(x):
+  return sigmoid(x) * (1-sigmoid(x))
+
+def perceptron(X, W):
+  h = np.dot(X, W)
+  print("np.dot(X, W) :", h)
+
+  return sigmoid(h)
+
+def update_weight(X, W, Y, error_term, learning_rate = 0.1):
+  W = W + learning_rate * np.dot(error_term, X)
+  return W
+
+W = np.array([0., 0., 0.])
+
+X = np.array([[1.0, 0.0, 0.0],
+              [1.0, 1.0, 0.0],
+              [1.0, 0.0, 1.0],
+              [1.0, 1.0, 1.0]])
+
+Y = np.array([0,0,0,1])
+
+epoch = 0
+sum_error = 1
+threashold = 0.1
+while sum_error > threashold:
+  epoch += 1
+  print("learning epoch :", epoch)
+  print("X :", X)
+  h = np.dot(X, W)
+  output = sigmoid(h)
+  print("perceptron(X) :", np.round(output, 4))
+  errors = Y - output
+  print("errors :", np.round(errors, 4))
+  output_grad = sigmoid_p(h)
+  print("output_grad :", np.round(output_grad, 4))
+  error_term = errors * output_grad
+  print("error_term :", np.round(error_term, 4))
+  W = update_weight(X, W, Y, error_term)
+  sum_error = np.sum(np.absolute(errors)) / len(Y)
+  print("sum of errors :", np.round(sum_error, 4))
+  print("W :", np.round(W, 4))
+  print("")
+
+print("final W for AND function :", np.round(W, 4))
+
+"""
+
+learning epoch : 2365
+X : [[ 1.  0.  0.]
+ [ 1.  1.  0.]
+ [ 1.  0.  1.]
+ [ 1.  1.  1.]]
+perceptron(X) : [ 0.0035  0.1238  0.1238  0.8512]
+errors : [-0.0035 -0.1238 -0.1238  0.1488]
+output_grad : [ 0.0035  0.1085  0.1085  0.1266]
+sum of errors : 0.1
+W : [-5.6581  3.7012  3.7012]
+
+final W for AND function : [-5.6581  3.7012  3.7012]
+"""
+```
+
 
 ## 3 X 3 사이즈의 이미지 인식 구현
 
@@ -253,7 +385,7 @@ O = [1, 0, 0, 0]
 X = [0, 0, 0, 1]
 
 
-## 2-4. 활성화 함수(Activation Function)
+## 3-4. 활성화 함수(Activation Function)
 
 ```python
 def ReLU(x):
@@ -263,60 +395,8 @@ def sigmoid(x):
   return 1/(1+np.exp(-x))
 ```
 
-## 2-5. 손실 함수(Loss Function)
+## 3-5. 손실 함수(Loss Function)
 
 
-
-## 2-3. 경사 하강법(Gradient Descent)
-
-```python
-# From udacity Machine Learning Nanodegree course
-
-import numpy as np
-
-# Define sigmoid function
-def sigmoid(x):
-  return 1/(1+np.exp(-x))
-
-# Derivative of the sigmoid function
-def sigmoid_derivative(x):
-  return sigmoid(x) * (1 - sigmoid(x))
-
-# Feature data
-feature = np.array([0.9, -0.2])
-
-# Label data (Target)
-label = 0.9
-
-# Weights of neural network
-weights = np.array([0.3, -0.8])
-
-# The learning rate, eta in the weight step equation
-learnrate = 0.1
-
-# the linear combination performed by the node (h in f(h) and f'(h))
-h = np.dot(feature, weights)
-
-# The neural network output (label-hat)
-nn_output = sigmoid(h)
-
-# output error (label - label-hat)
-error = label - nn_output
-
-# output gradient (f'(h))
-output_grad = sigmoid_derivative(h)
-
-# error term (lowercase delta)
-error_term = error * output_grad
-
-# Gradient descent step 
-del_w = learnrate * error_term * feature
-
-print('Output: %s' % nn_output)
-print('Error: %s' % error)
-print('Change in Weights: %s' % del_w)
-```
-
-
-## 2-5. 최적화 함수(Optimization Function)
+## 3-7. 최적화 함수(Optimization Function)
 

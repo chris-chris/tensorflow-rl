@@ -1,4 +1,4 @@
-# Chapter I. 강화학습 공식
+# Equations for RL. 강화학습 공식
 
 ### 보상함수
 $$ R^a_s = E[R_{t+1} | S_t=s, A_t = a]$$
