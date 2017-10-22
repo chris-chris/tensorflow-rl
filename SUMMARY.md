@@ -9,7 +9,7 @@
 * [Chapter 4. 인공신경망](neural_network.md)
 * [Chapter 5. CNN](cnn.md)
 * [Chapter 6. LSTM](lstm.md)
-* [Chapter 7. 베이지안 추론](bayesian.md)
+* [Chapter 7. 베이지안 추론](bayesian2.md)
 
 ## Extra
 
