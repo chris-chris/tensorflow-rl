@@ -23,7 +23,7 @@ $$\pi (a|s) = P[A_t = a | S_t = s]$$
 ### 감가율을 적용한 보상들의 합
 
 $$ 
-R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \gamma^3 R_{t+4} + \dots
+R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \gamma^3 R_{t+4} + ...
 $$
 
 ### 계산 가능한 벨만 방정식
