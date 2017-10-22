@@ -73,15 +73,15 @@ $$ Q(s,a) \leftarrow Q(s,a) + \alpha(r + \gamma Q(s', a') - Q(s,a)) $$
 
 ### 큐러닝을 통한 큐함수의 업데이트
 
-$$ Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha(R_{t+1} + \gamma \underset{a'}{\mathrm{max}}Q(S_{t+1}, a') - Q(S_t, A_t))$$
+$$ Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha(R_{t+1} + \gamma {\mathrm{max}_{a'}}Q(S_{t+1}, a') - Q(S_t, A_t))$$
 
 ### 큐함수에 대한 벨만 최적 방정식
 
-$$ q_*(s,a) = E[R_{t+1} + \gamma\underset{a'}{\mathrm{max}}q_*(S_{t+1}, a') | S_t = s, A_t = a] $$
+$$ q_*(s,a) = E[R_{t+1} + \gamma{\mathrm{max}_{a'}}q_*(S_{t+1}, a') | S_t = s, A_t = a] $$
 
 ### 큐러닝에서 큐함수의 업데이트 식
 
-$$ Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha(R_{t+1} + \gamma \underset{a'}{\mathrm{max}}Q(S_{t+1}, a') -Q(S_t, A_t)) $$
+$$ Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha(R_{t+1} + \gamma {\mathrm{max}_{a'}}Q(S_{t+1}, a') -Q(S_t, A_t)) $$
 
 ### A3C Policy Gradient 수식 유도
 
