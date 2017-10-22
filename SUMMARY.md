@@ -1,8 +1,14 @@
 # Summary
 
-* [Chapter 1](ch1.md)
-* [Chapter 2](ch2.md)
-* [Chapter 3](ch3.md)
+* [Chapter 1. Python, Numpy, Notebook](python.md)
+* [Chapter 2. 선형대수학](linalg.md)
+* [Chapter 3. 통계와 정보이론](stat.md)
+
+* [Chapter 4. 인공신경망](neural_network.md)
+* [Chapter 5. CNN](cnn.md)
+* [Chapter 6. LSTM](lstm.md)
+
+* [Chapter 7. 베이지안 추론](bayesian.md)
 
 
 * [RL Equations](rl-equations.md)
