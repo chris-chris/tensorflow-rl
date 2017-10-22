@@ -3,53 +3,83 @@
 import numpy as np
 
 # add arrays
-a = np.array([[1,2,3],
+A = np.array([[1,2,3],
               [4,5,6],
               [7,8,9]])
 
-b = np.array([[2,3,4],
+B = np.array([[2,3,4],
               [5,6,7],
               [8,9,10]])
 
-print("a :\n", a)
-# a : [1 2 3]
+print("A :\n", A)
+"""
+A :
+ [[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+"""
 
-print("b :\n",b)
-# b : [2 3 4]
+print("B :\n",B)
+"""
+B :
+ [[ 2  3  4]
+ [ 5  6  7]
+ [ 8  9 10]]
+"""
 
-c = a + b
+C = A + B
 
-print("a + b :\n", c)
-# a + b : [3 5 7]
+print("A + B :\n", C)
+"""
+A + B :
+ [[ 3  5  7]
+ [ 9 11 13]
+ [15 17 19]]
+"""
 
-c = a * b
-print("a * b :\n", c)
-# a * b : [ 2  6 12]
+C = A * B
+print("A * B :\n", C)
+"""
+A * B :
+ [[ 2  6 12]
+ [20 30 42]
+ [56 72 90]]
+"""
 
-c = np.dot(a, b)
-print("np.dot(a, b) :\n", c)
-# np.dot(a,b) : 20
+C = np.dot(A, B)
+print("np.dot(A, B) :\n", C)
+"""
+np.dot(A, B) :
+ [[ 36  42  48]
+ [ 81  96 111]
+ [126 150 174]]
+"""
 
-c = np.multiply(a, b)
-print("np.multiply(a, b) :\n", c)
-# np.multiply(a,b) : [ 2  6 12]
+C = np.multiply(A, B)
+print("np.multiply(A, B) :\n", C)
+"""
+np.multiply(A, B) :
+ [[ 2  6 12]
+ [20 30 42]
+ [56 72 90]]
+"""
 
-c = a.shape
-print("a.shape :", c)
-# a.shape : (3,)
+C = A.shape
+print("A.shape :", C)
+# A.shape : (3, 3)
 
-c = a.ndim
-print("a.ndim :", c)
-# np.ndim(a) : 1
+C = A.ndim
+print("A.ndim :", C)
+# A.ndim : 2
 
-c = a.dtype.name
-print("a.dtype.name :", c)
-# a.dtype.name : int64
+C = A.dtype.name
+print("A.dtype.name :", C)
+# A.dtype.name : int64
 
-c = a.size
-print("a.size :", c)
-# a.size : 3
+C = A.size
+print("A.size :", C)
+# A.size : 9
 
-c = type(a)
-print("type(a) :", c)
-# type(a) : <class 'numpy.ndarray'>
+C = type(A)
+print("type(A) :", C)
+# type(A) : <class 'numpy.ndarray'>

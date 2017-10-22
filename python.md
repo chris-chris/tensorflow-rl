@@ -147,7 +147,6 @@ print("type(y) :", type(y))
 
 ```python
 # -*- encoding : utf-8 -*-
-# -*- encoding : utf-8 -*-
 
 x = 7
 print("x = 7")
