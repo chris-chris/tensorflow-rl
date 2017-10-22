@@ -60,9 +60,9 @@ $$ v_\pi(s) = E_\pi [G_t | S_t = s] $$
 
 $$ v_\pi(s) = E_\pi[R_{t+1} + \gamma v_\pi(S_{t+1}) | S_t = s] $$
 
-$$  R + \gamma V(S_{t+1}) = 업데이트의 목표$$
+$$  R + \gamma V(S_{t+1}) $$ = 업데이트 목표
 
-$$  \alpha(R + \gamma V(S_{t+1}) - V(S_t)) = 업데이트의 크기$$
+$$  \alpha(R + \gamma V(S_{t+1}) - V(S_t)) $$ = 업데이트의 크기
 
 ### 살사의 큐함수 업데이트 식
 
